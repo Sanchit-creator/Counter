@@ -1,0 +1,90 @@
+body{
+    background-color: #D8F8FF;
+    padding: 50px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 500px;
+}
+
+.box{
+    background-image:  linear-gradient( to right, #AEE8EF, #E6B1DB);
+    height: 300px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.row1{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.row2{
+    display: flex;
+    justify-content: space-around;
+}
+
+.row2 button{
+    border-radius: 50px;
+    border: 1px transparent solid;
+    
+}
+
+.row2 input {
+    height: 40px;
+    width: 300px;
+}
+
+.box-1{
+    width: 70%;
+    background-color: #555555;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.output{
+    height: 100px;
+    width: 100px;
+    background-color: black;
+    overflow: hidden;
+}
+
+.numbers{
+    background-color: white;
+    height: 100px;
+    width: 100px;
+    margin-top: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 3px black solid;
+}
+
+.next{
+    background-color: white;
+    height: 100px;
+    width: 100px;
+    margin-top: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 3px black solid;
+}
+
+h1.animate {
+    transition-duration: 0.5s;
+    top: 0px;
+}
+
