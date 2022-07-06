@@ -10,18 +10,18 @@ function startCounter() {
         clearInterval(countInterval);   // This is important for the condition when a counter is running and you entered a wrong input for a new counter
         return;
     }
-    if (number < 1 || number > 9) {
+    if (number < 1 || number > 9999) {
         alert("Range out of bounds");
         clearInterval(countInterval);
         return;
     }
 
-    var currentNo = document.querySelector(".output .numbers");
-    var nextNo = document.querySelector(".output .next");
+    var currentNo = document.querySelectorAll(".output .numbers");
+    var nextNo = document.querySelectorAll(".output .next");
     var count = 0;
 
     // If user clicks on 'Start Counter' button again - remove this function and below 2 lines if you don't consider this situation
-    resetNumbers(currentNo, nextNo);
+    resetNumbers(currentNo, nextNo, 4);
     
     // Clears the previous interval that was running
     clearInterval(countInterval);
@@ -32,7 +32,7 @@ function startCounter() {
             alert("Counter has stopped");
             return;
         }
-        increaseCount(currentNo, nextNo);
+        increaseCount(currentNo, nextNo, 3);
         count++;
     }, 1000);
 
@@ -41,20 +41,32 @@ function startCounter() {
 
 
 function resetNumbers(currentNo, nextNo, end) {
-    currentNo.innerText = 0;
-    nextNo.innerText = 1;
+    for (var i = 0; i < end; ++i) {
+        currentNo[i].innerText = 0;
+        nextNo[i].innerText = 1;
+    }
 }
 
 
 
-function increaseCount(currentNo, nextNo) {
+function increaseCount(currentNo, nextNo, index) {
 
-    nextNo.classList.add("animate");
+    let current = currentNo[index];
+    let next = nextNo[index];
+
+    if (current.innerText == 9) {
+        increaseCount(currentNo, nextNo, index - 1);
+    }
+
+    next.classList.add("animate");
 
     setTimeout(function () {
-        currentNo.innerText = nextNo.innerText;
-        nextNo.classList.remove("animate");
-        nextNo.innerText = parseInt(nextNo.innerText) + 1;
+        current.innerText = next.innerText;
+        next.classList.remove("animate");
+        next.innerText = parseInt(next.innerText) + 1;
+        if(next.innerText > 9) {
+            next.innerText = 0;
+        }
     }, 500);
 
 }
